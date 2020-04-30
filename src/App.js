@@ -1,65 +1,72 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import questions_set from './Components/questions_set';
-import QuestionBox from './Components/Boxes';
-import Result from './Components/result'
-    
+import Display from './Components/display';
+import Button from './Components/button.js';
+
+
 class App extends Component {
   state={
-    questionBank: [],
-    score:0,
-    response:0
+    count:0,
+    Color:''
   };
 
+increment = () => {
+  var c=this.state.count+1;
+   var letters = "0123456789ABCDEF"; 
+    var color = '#'; 
+    for (var i = 0; i < 6; i++) 
+       color += letters[(Math.floor(Math.random() * 16))]; 
+  
+ // document.write(color); 
+ this.setState({
 
-  playagain=()=>{
-    this.getQuestions();
-    this.setState({
-      socre:0,
-      response:0
-    })
-  }
+  count:c,
+  Color:color
+ });
+}
 
-  computeanswer=(answer,correctanswer)=>{
-    if(answer===correctanswer)
-    {
-       this.setState({
-         socre:  Number(this.state.score) + 1
-       });
 
-    }
-    this.setState({
-      response:this.state.response <4 ?this.state.response + 1 : 4
-    })
+decrement = () => {
+  var d=this.state.count-1;
+   var letters = "0123456789ABCDEF"; 
+    var color = '#'; 
+    for (var i = 0; i < 6; i++) 
+       color += letters[(Math.floor(Math.random() * 16))]; 
+  
+ // document.write(color); 
+ if(d>=0){
+ this.setState({
 
-  }
+  count:d,
+  Color:color
+ });}
+}
 
-  getQuestions=()=>{
-      questions_set().then(question=>{
-        this.setState({questionBank:question});
-      });
-  };
-  componentDidMount(){
-    this.getQuestions();
-  }
+
+
+update = () => {
+  var f=0;
+ this.setState({
+
+  count:f,
+  Color:""
+ });
+}
+
+
+
+
  render(){
   return (
     <div className="App">
-      <div className="flow-text card-panel teal lighten-2 white-text center-align z-depth-3">HOW MUCH U KNOW ABOUT ME</div>
-      {
-        this.state.questionBank.length>0 && this.state.response< 4 && this.state.questionBank.map(
-          ({
-        question,answer,correct,questionid})=>
-        (<QuestionBox question={question} options={answer} key={questionid} selected={answer=> this.computeanswer(answer,correct)} />
-
-         ) )}
-
-         {this.state.response===4 ? (<Result score={this.state.score} playagain={this.playagain} /> ) : null }
+    <div className="card-panel teal lighten-2 flow-text white-text center-align">COLOR CHANGER</div><br/><br/>
+    <Display count={this.state.count} Color={this.state.Color} /><br/><br/>
+   <Button increment={this.increment} decrement={this.decrement} update={this.update}/>
     </div>
-
+      
     
-  );
+  )
 }
 }
 

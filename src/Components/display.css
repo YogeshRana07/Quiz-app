@@ -1,60 +1,29 @@
-.person{
-    display: block;
-    box-shadow: 0px 2px 2px gray;
-    border: 1px solid gray;
-    padding: 10px;
-    margin: 10px;
-    box-sizing: border-box;
-    
 
-}
-.personal{
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-}
-.container{
-    padding: 10;
-    margin-left: 10px;
-    font-size:15px;
-    display: flexbox;
-    align-items: center;
-    justify-content: center;
-}
-.container label{
-    font-size: 15px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bolder;
+.dis{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 7rem;
+    
+    height:40vh;
     text-align: center;
-}
-#name{
-    padding: 5px;
-    
-    margin:10px;
-text-align: center;
-    border: 1px solid black;
-    
-    box-shadow: 0px 1px 2px gray;
-}
-#age{
-    padding: 5px;
-    
-    margin:10px;
-    justify-content:left;
-text-align: center;
-    border: 1px solid black;
-    margin-left: 23px;
-    box-shadow: 0px 1px 2px gray;
-}
+    position: relative;
+    top:50%;
+    width:500px;
+    left: 35%;
+    justify-content:center;
+    box-sizing: border-box;
+    padding: 30px;
 
-#location{
-    padding: 5px;
+    border-radius:30px;
     
-    margin:10px;
-    justify-content:left;
-text-align: center;
-    border: 1px solid black;
-    margin-right: 37px;
-    box-shadow: 0px 1px 2px gray;
+
+}
+.t1{
+    position: relative;
+    
+    padding: 50px;
+    
+margin-bottom: 5px;
+    
+    top:20%;
+    /* left:45%; */
 }
