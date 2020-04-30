@@ -41,6 +41,13 @@ decrement = () => {
   count:d,
   Color:color
  });}
+  elseif(d==0)
+  {
+    this.setState({
+      count:d,
+      Color:""
+    });
+  }
 }
 
 
